@@ -199,3 +199,7 @@ $$
 $$
 83^{307} \space mod \space 729 = 562 \checkmark
 $$
+
+! TEMPORARY WORKAROUND !
+
+![](../TEMP.PNG)
