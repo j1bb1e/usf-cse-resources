@@ -76,7 +76,7 @@
 | Name                          | Form                                  |
 |-------------------------------|---------------------------------------|
 | Double Complement Law         | $(A^C)^C$ = C                         |
-| Set Difference Law            | A - B = A $\cup$ $B^C$                |
+| Set Difference Law            | A - B = A $\cap$ $B^C$                |
 | Symmetric Difference Law      | A $\Delta$ B = (A - B) $\cup$ (B - A) |
 | Reflexive Law                 | A $\subseteq$ A                       |
 
