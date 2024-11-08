@@ -5,9 +5,13 @@
     <a href="https://quizlet.com/957758773/cot-3100-set-laws-identities-flash-cards">quizlet</a>
 </p>
 
-<!-- The following tEx escapes do not render in GFM: \textbf{R}, \textbf{Z}, \empty                         -->
+<!-- The following tEx escapes do not render in GFM: \textbf{R}, \textbf{Z}, \empty         -->
 <!-- To render correctly, inline tEx blocks must not have characters directly after them    -->
 <!-- There is no way to insert single tilde (~) in GFM tEx                                  -->
+
+**Editor's Note:** The following content is missing from this review. You can help by expanding it.
+- Venn diagrams as proof of set identities
+- Evaluating indexed families of sets
 
 ## Preliminary - Exam Topics
 
@@ -87,13 +91,10 @@
     - Whose union is the original set
 
 >**Example:** List two possible partitions of \( \{1,2,3,4,5\} \).
+>
+>$\{\{1,2\},\{3,5\},\{4\}\}$<br>
+>$\{\{2\},\{1\},\{3,4,5\}\}\checkmark$
 
-\[
-\{\{1,2\},\{3,5\},\{4\}\}
-\]
-\[
-\{\{2\},\{1\},\{3,4,5\}\}\checkmark$
-\]
 - Power set, $\mathcal{P}(A)$, is set of all subsets of $A$
     - $\mathcal{P}(\emptyset) = \{ \emptyset \}$
     - $|\mathcal{P}(A)| = 2^{|A|}$
@@ -101,6 +102,8 @@
 >**Example:** Derive the power set of $\{0,1,2\}$.
 >
 >$\{\emptyset,\{0\},\{1\},\{2\},\{0,1\},\{0,2\},\{1,2\},\{0,1,2\}\} \checkmark$
+
+- The cardinality of some arbitrary Cartesian product, $|A \times B \times C \times \dots|$, is $|A| \times |B| \times |C| \times \dots$
 
 ### Common Set Identities
 | Name                          | Identity                                                          | Alternate Form                                                    |
@@ -110,15 +113,10 @@
 | Definition of set difference  | A - B = { x \| x $\in$ A $\land$ x $\notin$ B }                   | $x \in A - B \leftrightarrow x \in A \land x \notin B$            |
 | Definition of set equality    | $A = B \leftrightarrow A \subseteq B \land B \subseteq A$         |                                                                   |
 
-## 2. Indexed Families of Sets
-
 - An *indexed family of sets* is the application of an operator over all elements in a range
     - Similar to summation notation
 
-TODO practice
-TODO how to know # of equivalence classes, codomain elements grouped by?
-
-## 3. Relations over Sets
+## 2. Relations over Sets
 - A *relation* is a subset of the cartesian product of two sets
     - Each pair of elements satisfies some condition (if true, a *relationship*)
     - First set is domain, second is codomain
@@ -164,12 +162,40 @@ TODO how to know # of equivalence classes, codomain elements grouped by?
 >
 >$\checkmark$
 
-## 4. Modular Arithmetic
+- *Equivalence classes* of a relation map *x*-values to each *y*-value as a set
+    - Group possible permutations by the value that determines whether the pair belongs to the relationship
+    - Denoted by $[x]$, where *x* is the value determining the validity of the relationship
+- Equivalence classes defined by "divides to" relationship grouped by remainder
 
-- Rooted in identity $a^m = (a \space mod \space n)^m \space mod \space n$
-- Apply identity multiple times through *repeated squaring*
+## 3. Modular Arithmetic
 
->**Example:** Find ___ through repeated squaring.
->
->
->
+- Formula for modulo for small numbers:
+$$
+a \space mod \space b = b (\frac{a}{b} - \lfloor \frac{a}{b} \rfloor)
+$$
+- Use identity $a^m = (a \space mod \space n)^m \space mod \space n$ to solve problems in the form $a^m \space mod \space n$
+    - *a* assumed to be positive
+- Take example $83^{307} \space mod \space 729$:
+1. Convert $m$ to binary, collecting every power of 2
+$$
+307 = 100110011_2 = 2^8 + 2^6 + 2^5 + 2^1 + 2^0
+$$
+2. For every exponent, $b$, calculate  $c = {a^2}^b \space mod \space n$ using the first formula
+$$
+{83^2}^8 \space mod \space 729 = 368449 \space mod \space 729 = 145 \newline 
+{83^2}^6 \space mod \space 729 = 246016 \space mod \space 729 = 217 \newline
+{83^2}^5 \space mod \space 729 = 49729 \space mod \space 729 = 496 \newline
+{83^2}^1 \space mod \space 729 = 6889 \space mod \space 729 = 328 \newline
+{83^2}^0 \space mod \space 729 = 83  \space mod \space 729 = 83
+$$
+3. For every pair $(c_1,c_2)$, fold the terms using the formula $c' = c_1c_2 \space mod \space n$
+$$
+(145 \bullet 217) \space mod \space 729 = 91 \newline 
+(91 \bullet 496) \space mod \space 729 = 541 \newline 
+(541 \bullet 328) \space mod \space = 235 \newline 
+(235 \bullet 83) \space mod \space = 562
+$$
+4. Done
+$$
+83^{307} \space mod \space 729 = 562 \checkmark
+$$
