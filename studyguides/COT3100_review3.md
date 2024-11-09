@@ -4,4 +4,4 @@
     <a href="../textbooks/COT3100_textbook.pdf">textbook</a>
 </p>
 
-***UP-TO-DATE***
+***WIP***

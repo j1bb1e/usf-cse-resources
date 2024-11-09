@@ -177,9 +177,6 @@
 ---
 
 - When evaluating sequential circuits, output dependent on feedback is its previous output
-    - 
-
-TODO example from review
 
 ## 5. Introduction to RISC-V Assembly
 

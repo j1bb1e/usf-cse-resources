@@ -65,10 +65,15 @@ linked list (struct)
 
 function pointers
 
+- Goals of code abstraction
+    - Hiding complex details from user
+    - Creating simple, high-level user interfaces
+    - Facilitating software maintenance
+
 ## 4. Project Organization
 
 multifile programs
 
 makefiles
 
-***UP-TO-DATE***
+***WIP***

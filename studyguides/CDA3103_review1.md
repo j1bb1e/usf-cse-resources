@@ -101,8 +101,6 @@
     - Almost always 8 bits
     - To represent volume in bits, use lowercase *b*
 
-TODO BCD, etc
-
 ## 2. Von Neumann Architecture
 
 - *Von Neumann Architecture* is basic form of computer architecture, consists of:
@@ -175,8 +173,6 @@ TODO BCD, etc
 
 ## 4. Binary Representation of Numbers
 
-TODO more on 1's complement
-
 - *Binary* is the representation of numbers in base-2
     - Also represent closed and open or on and off, respectively
     - Binary digits, a.k.a. *"bits"*
@@ -213,9 +209,9 @@ TODO more on 1's complement
 > 
 >$137_{10} = 10001001_2 = 0000000010001001_2 \checkmark$
 
-- Overflow is when final carry is 1
-    - May cause numbers to "wrap around" to a different sign
-- Addition without overflow is the same between representations
+- Overflow is when final carry is 1 and number "wraps around" to a different sign
+    - Provides incorrect numerical result
+- Addition without final carry is the same between representations
     - Going from right-to-left, add each bit according to the table below
 
 | # of 1's  | 0 | 1 | 2 | 3 |
@@ -225,8 +221,8 @@ TODO more on 1's complement
 
 - Subtraction is the same, except second number is negated according to representation
 - For sign-magnitude results, you just have to know the result and resulting sign
-- For 1's complement, overflow is added to number at position 0
-- For 2's complement, overflow is disregarded
+- For 1's complement, final carry is added to number at position 0
+- For 2's complement, final carry is disregarded
 
 >**Example:** Subtract $23_{10}$ from $-13_{10}$ using 1's complement.
 >
@@ -238,7 +234,7 @@ TODO more on 1's complement
 >   11110010
 > - 11101000
 >-----------
->   11011010 \\ Adding overflow of 1, we get 11011011
+>   11011010 \\ Adding final carry of 1, we get 11011011
 >```
 >$11011011_2 = -(00100100_2) = -36_{10} \checkmark$
 
@@ -246,7 +242,9 @@ TODO more on 1's complement
 
 - Memorization of encoding tables is unnecessary for exam
 - *Binary-coded decimal* (BCD) encodes characters using 4 bits
-    - Encodes digits 0-9 in their decimal form
+    - Used for numeric data encoding
+- *EBCDIC* extends BCD to 8-bit encoding
+    - Developed for mainframes
 - Special BCD "zones" represent signedness
     - **Unsigned:** `1111`
     - **Positive:** `1100`

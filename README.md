@@ -60,4 +60,3 @@ The following are planned to be added in the future:
 2. CDA 3103 review 3
 3. COT 3100 review 3
 4. GitHub Pages site
-5. COT 3100 review 2
