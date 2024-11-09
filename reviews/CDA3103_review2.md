@@ -273,7 +273,7 @@
 
 | Instruction   | Use-Case                                                      | Example                                               |
 |---------------|---------------------------------------------------------------|-------------------------------------------------------|
-| `andi`        | Clear specific bits, since `x0 = 0`<br>Find modulo of $2^n$   | `x % n` $\leftrightarrow$ `andi rd, {&x}, {n - 1}`    |
+| `andi`        | Clear specific bits, since `0x = 0`<br>Find modulo of $2^n$   | `x % n` $\leftrightarrow$ `andi rd, {&x}, {n - 1}`    |
 | `ori`         | Set specific bits, since `x + 1 = 1`                          |                                                       |
 | `xori`        | Logical NOT                                                   | `!x` $\leftrightarrow$ `xori rd, {&x}, -1`            |
 | `slli`        | Multiply by $2^n$, where *n* is the shift amount              | `x * 4` $\leftrightarrow$ `slli rd, {&x}, 2`          |
