@@ -271,14 +271,14 @@
 | `lbu rd, imm(rs1)`    | Loads lowest byte (8 bits) from address `rs1 + imm`, with MSB filled with zeros               |
 | `lhu rd, imm(rs1)`    | Loads lowest 2 bytes (16 bits) from address `rs1 + imm`, with MSB filled with zeros           |
 
-| Instruction   | Use-Case                                                      | Example                                               |
-|---------------|---------------------------------------------------------------|-------------------------------------------------------|
-| `andi`        | Clear specific bits, since `0x = 0`<br>Find modulo of $2^n$   | `x % n` $\leftrightarrow$ `andi rd, {&x}, {n - 1}`    |
-| `ori`         | Set specific bits, since `x + 1 = 1`                          |                                                       |
-| `xori`        | Logical NOT                                                   | `!x` $\leftrightarrow$ `xori rd, {&x}, -1`            |
-| `slli`        | Multiply by $2^n$, where *n* is the shift amount              | `x * 4` $\leftrightarrow$ `slli rd, {&x}, 2`          |
-| `srai`        | Divide by $2^n$, where *n* is the shift amount                | `x / 2` $\leftrightarrow$ `srai rd, {&x}, 1`          |
-| `l{...}`      | Read value from an array                                      | `x = (int) y[6]` $\leftrightarrow$ `lw {&x}, 6({&y})` |
+| Instruction   | Use-Case                                                                                | Example                                               |
+|---------------|-----------------------------------------------------------------------------------------|-------------------------------------------------------|
+| `andi`        | Clear specific bits, since `0x = 0`<br>Find modulo by $n$, where $n$ is a power of 2    | `x % n` $\leftrightarrow$ `andi rd, {&x}, {n - 1}`    |
+| `ori`         | Set specific bits, since `x + 1 = 1`                                                    |                                                       |
+| `xori`        | Logical NOT                                                                             | `!x` $\leftrightarrow$ `xori rd, {&x}, -1`            |
+| `slli`        | Multiply by $2^n$, where *n* is the shift amount                                        | `x * 4` $\leftrightarrow$ `slli rd, {&x}, 2`          |
+| `srai`        | Divide by $2^n$, where *n* is the shift amount                                          | `x / 2` $\leftrightarrow$ `srai rd, {&x}, 1`          |
+| `l{...}`      | Read value from an array                                                                | `x = (int) y[6]` $\leftrightarrow$ `lw {&x}, 6({&y})` |
 
 - For instructions with an offset of `0`, the offset can be omitted
 - For `slli`, if the constant is not a power of 2, sum multiple left shifts
