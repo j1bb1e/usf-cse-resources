@@ -176,6 +176,11 @@
 
 ---
 
+- When evaluating sequential circuits, output dependent on feedback is its previous output
+    - 
+
+TODO example from review
+
 ## 5. Introduction to RISC-V Assembly
 
 - *RISC-V* is a free and open-source instruction set architecture (ISA)
@@ -397,7 +402,7 @@
 
 - Stack grows towards $-\infty$
 - Functions defined by a label of their name, followed by a colon
-- For non-leaf functions, the return process is:
+- The return process:
 
 ```assembly
 func1:
@@ -413,6 +418,8 @@ func2:
     jr ra               # return to caller
 ```
 
+- Call `jr ra` to return to the function whose address is in `ra`
+    - Necessary, even for `void` functions in C
 - *Leaf* functions do not call other functions
     - No need to save return address
 

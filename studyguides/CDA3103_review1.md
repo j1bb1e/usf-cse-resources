@@ -101,6 +101,8 @@
     - Almost always 8 bits
     - To represent volume in bits, use lowercase *b*
 
+TODO BCD, etc
+
 ## 2. Von Neumann Architecture
 
 - *Von Neumann Architecture* is basic form of computer architecture, consists of:
@@ -172,6 +174,8 @@
 >$16^2 + (4 \bullet 16) + 7 + \frac{10}{16} = 327.625_{10} \checkmark$
 
 ## 4. Binary Representation of Numbers
+
+TODO more on 1's complement
 
 - *Binary* is the representation of numbers in base-2
     - Also represent closed and open or on and off, respectively

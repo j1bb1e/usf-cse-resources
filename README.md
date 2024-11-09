@@ -34,7 +34,7 @@ As of November 2024, this repository contains materials covering:
     - Recordings or photographs
 2. Uploaded files must follow extension conventions
     - `/images` must contain all images that can be rendered in GitHub for web
-    - `/reviews` must contain only `.md`, `.docx`, or `.pdf` files 
+    - `/studyguides` must contain only `.md`, `.docx`, or `.pdf` files 
     - `/textbooks` must contain only `.pdf` files
 3. Uploaded files must follow naming conventions
     - For review sheets, `{subject}{course #}_review{n}`
