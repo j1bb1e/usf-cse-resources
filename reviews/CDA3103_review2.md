@@ -328,11 +328,13 @@
 
 - `lui` can be used to initialize registers with large values
     - Because the sign bit of the first 12 numbers is 1, the number overflows and thus must be converted
-- To store numbers not representable in 12-bit signed format (not in [-0x800, 0x7FF] or [-2048, 2047]):
+- To store numbers whose lower 12-bits not representable in 12-bit unsigned format (not in [-0x800, 0x7FF] or [-2048, 2047]):
     1. Convert digits to binary
-    2. Store largest 20 bits with `lui`
+    2. Store largest 20 bits with `lui`, plus 1
     3. Find absolute value of smallest 12 bits, which should produce a negative number
     4. Store the negative number by prefixing with `-` and storing it with `addi`
+- Negative values must be passed for lower 12 bits in case of overflow, because unsigned values cannot fill sign bit
+    - Must be converted to unsigned equivalent
 
 >**Example:** Initialize the registers `t0` and `t1` with values `0xABCDE265` and `0xABCDE965`, respectively.
 >
@@ -340,7 +342,7 @@
 >lui  t0, 0xABCDE       # upper 20 bits (5 hex digits)
 >addi t0, t0, 0x265     # lower 12 bits (3 hex digits)
 >
->lui  t1, 0xABCDE       # upper 20 bits
+>lui  t1, 0xABCDF       # upper 20 bits, plus 1 to offset value -1 value of sign-extended bits
 >addi t1, t1, -0x69B    # lower 12 bits, as signed since number is over 7FF (convert to binary first)
 >```
 >
