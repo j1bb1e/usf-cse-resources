@@ -104,7 +104,7 @@
 
 ### SR Latch
 
-- Holds one bit of data, $Q$
+- Holds one bit of data, *Q*
     - Complement is secondary output, $\bar{Q}$
 - Asynchronous
 
@@ -275,7 +275,7 @@
 
 | Instruction   | Use-Case                                                                                | Example                                               |
 |---------------|-----------------------------------------------------------------------------------------|-------------------------------------------------------|
-| `andi`        | Clear specific bits, since `0x = 0`<br>Find modulo by $n$, where $n$ is a power of 2    | `x % n` $\leftrightarrow$ `andi rd, {&x}, {n - 1}`    |
+| `andi`        | Clear specific bits, since `0x = 0`<br>Find modulo by *n*, where *n* is a power of 2    | `x % n` $\leftrightarrow$ `andi rd, {&x}, {n - 1}`    |
 | `ori`         | Set specific bits, since `x + 1 = 1`                                                    |                                                       |
 | `xori`        | Logical NOT                                                                             | `!x` $\leftrightarrow$ `xori rd, {&x}, -1`            |
 | `slli`        | Multiply by $2^n$, where *n* is the shift amount                                        | `x * 4` $\leftrightarrow$ `slli rd, {&x}, 2`          |

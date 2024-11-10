@@ -118,9 +118,6 @@
 # 3. Modular Arithmetic
 
 - Used to evaluate operations of the form $a^m \space mod \space n$
-- Utilizes the identity $a^m \space mod \space n = (a^\frac{m}{2} \space mod \space n)^m \space mod \space n$
-- Algorithm
-    1. x
-    2. x
-    3. x
-    4. x
+    1. Partition *m* into its equivalent powers of 2 (its `1` bits when converted to binary)
+    2. For every power of 2, *p*, perform $a^p \space mod \space n$ using the identity $a^m \space mod \space n = (a^\frac{m}{2} \space mod \space n)^m \space mod \space n$
+    3. For every intermediate modulo result, *p'*, multiply them and modulo their product by *n*
