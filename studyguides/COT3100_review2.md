@@ -119,5 +119,28 @@
 
 - Used to evaluate operations of the form $a^m \space mod \space n$
     1. Partition *m* into its equivalent powers of 2 (its `1` bits when converted to binary)
-    2. For every power of 2, *p*, perform $a^p \space mod \space n$ using the identity $a^m \space mod \space n = (a^\frac{m}{2} \space mod \space n)^m \space mod \space n$
+    2. For every power of 2, *p*, perform $a^p \space mod \space n$ using the identity $a^m \space mod \space n = (a^\frac{m}{2} \space mod \space n)^2 \space mod \space n$
     3. For every intermediate modulo result, *p'*, multiply them and modulo their product by *n*
+- Becomes more efficient the larger the exponent is
+- First modulo must always be done by hand
+
+>**Example:** Evaluate $38^{47} \space mod \space 41$.
+>
+>Partition the exponent into its powers of 2. 
+>
+>$47 = 32 + 8 + 4 + 2 + 1$
+>
+>For each power, find the modulo.
+>
+>$38^1 \space mod \space 41 = 38 \space mod \space 41 = 38$<br>
+>$38^2 \space mod \space 41 = (38^1 \space mod \space 41)^2 \space mod \space 41 = 38^2 \space mod \space 41 = 9$<br>
+>$38^4 \space mod \space 41 = (38^2 \space mod \space 41)^2 \space mod \space 41 = 9^2 \space mod \space 41 = 40$
+>$38^8 \space mod \space 41 = (38^4 \space mod \space 41)^2 \space mod \space 41 = 1^2 \space mod \space 41 = 1$
+>$38^16 \space mod \space 41 = (38^8 \space mod \space 41)^2 \space mod \space 41 = 9^2 \space mod \space 41 = 1$
+>$38^32 \space mod \space 41 = (38^{16} \space mod \space 41)^2 \space mod \space 41 = 9^2 \space mod \space 41 = 1$
+>
+>Multiply the intermediate modulo's, taking the remainder of the result.
+>
+>$(38 \bullet 9 \bullet 40 \bullet 1 \bullet 1 \bullet 1) \space mod \space 41 = 27$
+>
+>Therefore, $38^{47} \space mod \space 41 = 27 \checkmark$
